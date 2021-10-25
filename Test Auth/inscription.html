@@ -30,10 +30,11 @@
                 <div class="mb-3 row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword">
+                        <input type="text" class="form-control" id="inputPassword">
                     </div>
                 </div>
 
+                <button onclick="inscription()">Inscri</button>
                 <button type="button" class="btn btn-primary" onclick="genererPassword()">Générer Pass</button>
 
             </div>
@@ -58,6 +59,25 @@
     </div>
 
     <script>
+        function inscription() {
+            sessionStorage.setItem('nomcomplet', document.getElementById('nomprenom').value);
+            sessionStorage.setItem('email', document.getElementById('email').value);
+            sessionStorage.setItem('password', document.getElementById('inputPassword').value);
+        }
+
+        function genererPassword() {
+            var alphaNumber = "abcdefghijklmnopqrstuvwxyz0123456789";
+            const charactersLength = alphaNumber.length;
+            const numbers = [8, 9, 10, 11, 12];
+            const ramdomLenght = numbers[Math.floor(Math.random() * numbers.length)];
+            let result = ' ';
+            for (let i = 0; i < ramdomLenght; i++) {
+                result += alphaNumber.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            console.log(result);
+            document.getElementById('inputPassword').value = result;
+        }
+
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -65,11 +85,14 @@
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 
-        function authentifier(login, password) {
-            login = document.getElementById('staticEmail').value
-            password = document.getElementById('authPassword').value
+        function authentifier() {
+            let login = document.getElementById('staticEmail').value
+            let password = document.getElementById('authPassword').value
 
-            if (password == "admin" && login == "user") { // authentification réussie
+            let savedEmail = sessionStorage.getItem('email');
+            let savedPass = sessionStorage.getItem('password');
+
+            if (password == savedPass && login == savedEmail) { // authentification réussie
                 setCookie("username", login, 3)
                     // login étant le nom d'utilisateur qui vient de s'authentifier
                 window.location = "dashboard.html"
