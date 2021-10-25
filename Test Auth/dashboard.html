@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des patients</title>
+    <link rel="stylesheet" href="assets/style-connecte.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body onload="checkAuthenticated()">
+    <header>
+        <div style="font-size: 18px;" id="welcomeMessage"></div>
+        <h1>Liste des patients</h1>
+    </header>
+    <main>
+
+        <button type="button" id="add-btn">Nouveau patient</button>
+        <div class="clear"></div>
+        <table width="100%" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Mail</th>
+                    <th>Téléphone</th>
+                    <th>Ville</th>
+                    <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>SETHOM</td>
+                    <td>Ahmed Amin</td>
+                    <td>aa.aa@aa.aa</td>
+                    <td>06 11 22 33 44</td>
+                    <td>Paris</td>
+                    <td>
+                        <button type="button" class="btn-action"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button>
+                        <button type="button" class="btn-action"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>François</td>
+                    <td>Dupont</td>
+                    <td>aa.aa@aa.aa</td>
+                    <td>06 11 22 33 44</td>
+                    <td>Paris</td>
+                    <td><button type="button" class="btn-action"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button>
+                        <button type="button" class="btn-action"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkAuthenticated() {
+            let username = getCookie("username");
+            console.log(username == null);
+
+            if (username == null) {
+                // user non connecté
+                window.location = 'inscription.html'
+            } else {
+                // utilisateur connecté
+                document.getElementById('welcomeMessage').innerHTML = "Bienvenue " + username;
+            }
+            console.log(username);
+        }
+    </script>
+
+</body>
+
+</html>
