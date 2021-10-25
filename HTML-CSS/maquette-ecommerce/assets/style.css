@@ -1,0 +1,51 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.product {
+    text-align: center;
+    width: 24.5%;
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    position: relative;
+}
+
+#products {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+}
+
+#nbusers {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    border: solid 1px #CCC;
+    background: #FFF;
+    padding: 10px;
+}
+
+.promo {
+    position: absolute;
+    background: #F00;
+    color: #FFF;
+    padding: 5px;
+    top: 0;
+    right: 10px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.promo:hover {
+    font-size: 16px;
+    background-color: rgb(63, 71, 151);
+    /* équivalente #3f4797 */
+}

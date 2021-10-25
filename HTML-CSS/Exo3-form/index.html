@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Forms</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <table border="0" width="600" cellpadding="5" cellspacing="3">
+            <tr>
+                <td colspan="2" align="center">
+                    <h1 style="color: brown;">Formulaire d'inscription</h1>
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="nom">Nom *</label></td>
+                <td><input type="text" name="nom" id="nom" required placeholder="Votre nom"></td>
+            </tr>
+            <tr>
+                <td><label for="prenom">Prénom *</label></td>
+                <td><input type="text" name="prenom" id="prenom" required placeholder="Votre prénom"></td>
+            </tr>
+            <tr>
+                <td><label for="dateNaissance">Date de naissance *</label></td>
+                <td><input type="text" name="date_naissance" id="date_naissance" readonly placeholder="Votre date de naissance ">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="pass">Mot de passe *</label></td>
+                <td><input type="password" name="pass" id="pass" placeholder="Votre mot de passe ">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="pass">file *</label></td>
+                <td><input type="file" name="pass" id="pass">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><label for="adresse">Adresse *</label></td>
+                <td><input type="text" name="adresse" id="adresse" disabled placeholder="Votre adresse"></td>
+            </tr>
+            <tr>
+                <td><label for="pays">Pays *</label></td>
+                <td>
+                    <select name="pays" id="pays">
+                        <option value="France">FRANCE</option>
+                        <option value="Allemagne">ALLEMAGNE</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="ville">Ville *</label></td>
+                <td>
+                    <select name="ville" id="ville">
+                        <option value="Paris">PARIS</option>
+                        <option value="Marseille">MARSEILLE</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Inputs HTML5</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" name="nombre" max="50" min="10">
+                </td>
+                <td>
+                    <input type="date" name="madate">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="datetime-local">
+                </td>
+
+                <td>
+                    <input type="month" name="mois">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="email" name="monEmail">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Envoyer</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+
+</html>

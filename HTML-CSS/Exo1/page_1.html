@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo1</title>
+    <style type="text/css">
+        label {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        <label for="nomid">Votre nom : </label>
+        <input type="text" id="nomid" name="nom" placeholder="Saisir votre nom :" value="Amine" maxlength="10">
+
+        <br><br>
+
+        <hr>
+
+        <label for="message">Votre message : </label>
+        <textarea name="message" id="message" placeholder="Votre message ici : ">test</textarea>
+
+        <br>
+        <br>
+        <label>Quel type de musique aimez vous ?</label>
+        <br><input type="checkbox" id="jazz" value="jazz" name="musique"> Le Jazz
+        <br><input type="checkbox" id="techno" value="techno" name="musique" checked="checked"> Techno
+        <br><input type="checkbox" id="rock" value="rock" name="musique"> Rock
+
+        <br>
+        <br>
+        <label>Votre Genre ?</label>
+        <br><input type="radio" id="male" value="male" name="genre" checked="checked"> Male
+        <br><input type="radio" id="femelle" value="femelle" name="genre"> Femelle
+        <br><br>
+        <input type="submit" value="Valider">
+        <input type="reset" value="Réinitialiser">
+    </form>
+</body>
+
+</html>
