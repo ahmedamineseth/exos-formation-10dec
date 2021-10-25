@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices JS</title>
+</head>
+
+<body>
+
+    <script>
+        function afficherPair() {
+            for (let i = 0; i <= 10; i++) {
+                if (i % 2 == 0) {
+                    console.log(i + " ");
+                }
+            }
+        }
+
+        function parfait(n) {
+            let somme = 0;
+            for (let i = 0; i < n; i++) {
+                if (n % i == 0) {
+                    somme += i;
+                }
+            }
+
+            if (somme == n) {
+                console.log(n + ": est bien parfait");
+            } else {
+                console.log(n + " n'est pas un nombre parfait");
+            }
+        }
+
+        afficherPair();
+        var n = prompt("Veuillez saisir un nombre à tester")
+        n = parseInt(n);
+        parfait(n)
+    </script>
+</body>
+
+</html>

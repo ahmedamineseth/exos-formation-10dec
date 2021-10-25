@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horloge</title>
+    <style>
+        #horloge {
+            font-size: 18px;
+            font-family: arial;
+            width: 200px;
+            margin: 30px auto;
+            line-height: 33px;
+            text-align: center;
+            border: solid 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="horloge"></div>
+
+    <ul>
+        <li>******</li>
+        <li>-------------</li>
+        <li>zzzzzzzzzzzzz</li>
+    </ul>
+
+    <button type="button" id="btnhello">Say Hello</button>
+
+    <script>
+        function formatCell(n) {
+            let s = "" + n;
+            return s.padStart(2, "0")
+        }
+
+        function setHorloge() {
+            setInterval(function() {
+                let horlogeElemnt = document.getElementById('horloge');
+                let d = new Date();
+                // Format = 09:12:05 <br>25/10/2021
+                let heure = formatCell(d.getHours()) + ':' + formatCell(d.getMinutes()) + ':' + formatCell(d.getSeconds());
+                let datef = formatCell(d.getDate()) + '/' + formatCell(d.getMonth() + 1) + '/' + d.getFullYear();
+                horlogeElemnt.innerHTML = heure + '<br>' + datef;
+            }, 1000);
+
+
+        }
+
+        function sayHello() {
+            console.log("Bonjour");
+        }
+
+        document.getElementById('btnhello').onclick = sayHello
+
+        //document.getElementsByTagName('body')[0] => element html représentant le body
+
+        document.getElementsByTagName('body')[0].onload = onLoadFunction
+
+        function onLoadFunction() {
+            /*let lis = document.getElementsByTagName('li')
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].innerHTML = "..........."
+            }*/
+
+            let uls = document.getElementsByTagName('ul')
+            for (let i = 0; i < uls.length; i++) {
+
+                let noeudsFils = uls[i].children
+
+                for (let j = 0; j < noeudsFils.length; j++) {
+                    noeudsFils[j].innerHTML = '.........'
+                }
+                //lis[i].innerHTML = "..........."
+            }
+
+            setHorloge();
+
+        }
+
+        //let chiffres = document.getElementsByClassName('chiffre')
+
+        // écrire un code js permettant de mettre des "..........." dans tous les li
+    </script>
+
+
+    <ul>
+        <li>------------</li>
+    </ul>
+</body>
+
+</html>
