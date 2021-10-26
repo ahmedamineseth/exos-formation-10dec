@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire inscription</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="function.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Formulaire d'inscription</h1>
+        <hr>
+        <div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime quod nulla voluptatibus sed non ea omnis neque laboriosam vitae? Sit facere sint similique quisquam officiis voluptatibus odio ea debitis accusamus!
+            </p>
+        </div>
+        <form name="monForm" action="validation.html" method="post">
+            <div class="form-line">
+                <label>Nom *</label>
+                <input type="text" name="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-line">
+                <label>Prénom *</label>
+                <input type="text" name="prenom" placeholder="Votre prénom" required>
+            </div>
+            <div class="form-line">
+                <label>Date de naissance *</label>
+                <input type="date" name="datenaissance" placeholder="dd/mm/yyyy" required>
+            </div>
+            <div class="form-line">
+                <label>Adresse *</label>
+                <input type="text" name="adresse" placeholder="Votre adresse" required>
+            </div>
+            <div class="form-line">
+                <label>Pays *</label>
+                <select name="pays" required id="pays" onchange="load()">
+                    <option value="france">France</option>
+                    <option value="etatUnis">Etats Unis</option>
+                    <option value="belgique">Belgique</option>
+                </select>
+            </div>
+            <div class="form-line">
+                <label>Ville *</label>
+                <div id="cityContainer" style="width: 59%;float: right">
+                    <select name="ville" required id="ville">
+                        <option value="par">Paris</option>
+                        <option value="lil">Lille</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-line">
+                <button type="submit">Envoyer</button>
+            </div>
+
+        </form>
+    </main>
+</body>
+
+</html>
