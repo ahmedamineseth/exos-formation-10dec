@@ -49,7 +49,7 @@ public class ListPatient extends HttpServlet {
 		try {
 			for( Patient p : pliste.getPatients() ) {
 				out.println("<tr>");
-				out.println("<td>1</td><td>"+p.getNom() + " "+p.getPrenom()+"</td><td>"+p.getLocalDatenaissance()+"</td><td>"+p.getAdresse()+"</td><td>"+p.getVille()+"</td><td>"+p.getPays()+"</td>");
+				out.println("<td>"+p.getId() + "</td><td>"+p.getNom() + " "+p.getPrenom()+"</td><td>"+p.getLocalDatenaissance()+"</td><td>"+p.getAdresse()+"</td><td>"+p.getVille()+"</td><td>"+p.getPays()+"</td>");
 				out.println("</tr>");
 			}
 			

@@ -11,12 +11,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Patient {
+	private int id;
 	private String nom;
 	private String prenom;
 	private Date datenaissance;
 	private String adresse;
 	private String pays;
 	private String ville;
+	
+	
+
+	public Patient(int id, String nom, String prenom, Date datenaissance, String adresse, String pays, String ville) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.datenaissance = datenaissance;
+		this.adresse = adresse;
+		this.pays = pays;
+		this.ville = ville;
+	}
 
 	public Patient(String nom, String prenom, Date datenaissance, String adresse, String pays, String ville) {
 		this.nom = nom;
@@ -97,6 +111,14 @@ public class Patient {
 
 		stmt.executeUpdate();
 
+	} 
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public List<Patient> getPatients() throws Exception {
@@ -111,7 +133,7 @@ public class Patient {
 		
 		Patient p;
 		while(rs.next()) { 
-			p = new Patient( rs.getString("nom") , rs.getString("prenom") , rs.getDate("datenaissance") , rs.getString("adresse") , rs.getString("pays") , rs.getString("ville") );
+			p = new Patient( rs.getInt("id") , rs.getString("nom") , rs.getString("prenom") , rs.getDate("datenaissance") , rs.getString("adresse") , rs.getString("pays") , rs.getString("ville") );
 			lp.add(p);
 		}
 		
