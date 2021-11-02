@@ -3,33 +3,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<%@ page import="java.util.Date" %>
-    
 <meta charset="UTF-8">
-<title>Bonjour, ceci est ma première servlet</title>
+<title>Bonjour Première Servlet</title>
 </head>
 <body>
 
 <form name="test" action="" method="post">
-	<input type="text" name="chaine">
-	
-	<button type="submit">Valider</button>
+	<input type="text" name="chaine" value="bonjour pierre">
+	<input type="submit" value="Submit" id="button-1"/>
 </form>
-
-<h1>Page Bonjour</h1>
-
-<%! String s = ""; %>
-<%
-out.println( request.getMethod() );
-
-if( request.getMethod().equals("POST") ){
-	s = request.getParameter("chaine");
-//if( s != null ){
-	String[] sSplited = s.split( " " );
-	out.println( sSplited.length ); 
-}
-%>
-
+	<h1>Page Bonjour</h1>
+	<%! String s = "hello world"; %>
+	<%!
+	public int wordCount(String s) {  
+		int count = 0;
+        char ch[]= new char[s.length()];
+        for(int i=0;i<s.length();i++)
+        {  
+            ch[i]= s.charAt(i);  
+            if( ((i>0)&&(ch[i]!=' ')&&(ch[i-1]==' ')) || ((ch[0]!=' ')&&(i==0)) )  
+                count++;  
+        }  
+        return count;  
+    }
+	%>
+	<%
+		s = request.getParameter("chaine");
+		out.println(s + "<br>");
+		out.println(wordCount(s) + " words");
+	%>
 </body>
 </html>

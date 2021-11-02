@@ -10,7 +10,7 @@
 
 <%@ include file="fragments/header.jsp" %>
 <main class="container">
-Ici on affiche la liste des rdv
+<h3>Ici on affiche la liste des rdv</h3>
 
 </main>
 <%@ include file="fragments/footer.jsp" %>
