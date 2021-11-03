@@ -7,8 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name="Ville.findByPaysName",
+                query="SELECT v FROM Ville v WHERE v.pays = :name"),
+}) 
 public class Ville implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -22,6 +28,17 @@ public class Ville implements Serializable {
 
 	@Column(nullable = false, length = 150)
 	private Integer code_postal;
+	
+	@Column(nullable = false, length = 150)
+	private String pays;
+
+	public String getPays() {
+		return pays;
+	}
+
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
 
 	public Ville() {
 		// TODO Auto-generated constructor stub

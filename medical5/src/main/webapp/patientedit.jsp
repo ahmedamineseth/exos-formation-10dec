@@ -5,6 +5,7 @@
 <%@ page import="medical.m2i.dao.VilleDao" %>
 
 <% Patient p = new Patient();
+ArrayList<Ville> lv = new ArrayList<Ville>();
 %>
 
 	<%
@@ -18,7 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Formulaire d'édition patient</title>
-    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,9 +50,10 @@
 
             <div class="form-line mb-4">
                 <label class="form-label">Pays *</label>
-                <select class="form-select" name="pays" required id="pays">
-                    <option value="fr">France</option>
-                    <option value="us">Etats Unis</option>
+                <select class="form-select" name="pays" required id="pays" onchange="load()">
+                   	<option <% if( p.getPays().equals( "France" ) ) out.println("selected");  %>>France</option>
+                    <option <% if( p.getPays().equals( "Belgique" ) ) out.println("selected");  %>>Belgique</option>
+                    <option <% if( p.getPays().equals( "Etats Unis" ) ) out.println("selected");  %>>Etats Unis</option>
                 </select>
             </div>
 
@@ -60,8 +61,15 @@
                 <label class="form-label">Ville *</label>
                 <div id="cities-content" style="width: 59%;float: right">
                     <select class="form-select" name="ville" required id="ville">
-                     <option value="paris">Paris</option>     
-                    
+                    	<%
+                    	lv = ( ArrayList<Ville> ) request.getAttribute("villepatient");
+                    	
+                    	for( Ville v : lv ){
+                    		%>
+                    		<option <% if( p.getVille().equals( v.getNom() ) ) out.println("selected");  %>><%= v.getNom() %></option>
+                    		<%
+                    	}
+                    	%>
                     </select>
                 </div>
             </div>

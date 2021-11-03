@@ -44,7 +44,7 @@
 				<td><%= p.getPays() %></td>
 				<td><%= p.getVille() %></td>
 				<td>
-					<button class="btn btn-secondary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+					<a class="btn btn-secondary btn-sm" href="edit?id=<%= p.getId() %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 					<button class="btn btn-danger btn-sm" onclick="supprimer(<%= p.getId() %>)"><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
 				</td>
 			</tr>

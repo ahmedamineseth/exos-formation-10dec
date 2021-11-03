@@ -1,4 +1,4 @@
-package medical.m2i.controller;
+package medical.m2i.controller.patient;
 
 import java.io.IOException;
 import java.util.List;

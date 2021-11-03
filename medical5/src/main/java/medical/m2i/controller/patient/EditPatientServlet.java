@@ -1,6 +1,7 @@
-package medical.m2i.controller;
+package medical.m2i.controller.patient;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import medical.m2i.dao.PatientDao;
+import medical.m2i.dao.VilleDao;
 import medical.m2i.model.Patient;
+import medical.m2i.model.Ville;
 
 /**
  * Servlet implementation class EditPatientServlet
@@ -41,6 +44,21 @@ public class EditPatientServlet extends HttpServlet {
 		
 		request.setAttribute("patientparam" ,  p); 
 		
+		VilleDao vdao = new VilleDao();
+		List<Ville> lv;
+		
+		try {
+			lv = vdao.getVillesByPays( p.getPays() );
+			request.setAttribute("villepatient" ,  lv );
+			System.out.println( lv.size() );
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/patientedit.jsp");
 		dispatcher.forward(request, response);
 
@@ -64,6 +82,8 @@ public class EditPatientServlet extends HttpServlet {
 		PatientDao patientDao = new PatientDao();
 		System.out.println( "ok dans edit patient zz" + id );
 		patientDao.editPatient( id , nom, prenom, naissance, adresse );
+		
+		response.sendRedirect(request.getContextPath() + "/ListPatientServlet");
 		
 	}
 

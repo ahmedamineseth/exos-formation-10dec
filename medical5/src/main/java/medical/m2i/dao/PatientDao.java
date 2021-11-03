@@ -21,7 +21,6 @@ import medical.m2i.model.Ville;
 
 public class PatientDao {
 
-	private Properties db = new Properties();
 	EntityManagerFactory emf;
 	EntityManager em;
 

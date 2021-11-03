@@ -1,4 +1,4 @@
-package medical.m2i.controller;
+package medical.m2i.controller.patient;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,8 +34,9 @@ public class DeletePatientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		
+		//delete?id=valeur
 		
-		int id = 5;//Integer.parseInt(request.getAttribute("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		PatientDao patientDao = new PatientDao();
 		System.out.println( "ok dans supprimer patient" );

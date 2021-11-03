@@ -1,4 +1,4 @@
-package medical.m2i.controller;
+package medical.m2i.controller.patient;
 
 import java.io.IOException;
 
@@ -49,7 +49,7 @@ public class PatientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("Je suis bien dans la mÃ©thode post");
+		System.out.println("Je suis bien dans la méthode post");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String naissance = request.getParameter("naissance");
