@@ -47,7 +47,6 @@ public class ListPatientServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/listepatient.jsp");
 		dispatcher.forward(request, response);
 	}
