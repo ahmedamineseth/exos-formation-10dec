@@ -66,9 +66,9 @@ public class EditPatientServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Récupérer les infos soumises
+		// Rï¿½cupï¿½rer les infos soumises
 		
-		System.out.println("Je suis bien dans la méthode post");
+		System.out.println("Je suis bien dans la mï¿½thode post");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String naissance = request.getParameter("naissance");
@@ -78,10 +78,10 @@ public class EditPatientServlet extends HttpServlet {
 		
 		int id = Integer.parseInt( request.getParameter("id") );
 		
-		// Mettre à jour le patient en question 
+		// Mettre ï¿½ jour le patient en question 
 		PatientDao patientDao = new PatientDao();
 		System.out.println( "ok dans edit patient zz" + id );
-		patientDao.editPatient( id , nom, prenom, naissance, adresse );
+		patientDao.editPatient( id , nom, prenom, naissance, adresse, pays, ville  );
 		
 		response.sendRedirect(request.getContextPath() + "/ListPatientServlet");
 		

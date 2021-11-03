@@ -63,7 +63,7 @@ public class PatientDao {
 	public void deletePatient(int id) {
 		Patient p = em.find( Patient.class , id );
 		EntityTransaction tx = em.getTransaction();
-		// Début des modifications
+		// Dï¿½but des modifications
 		try {
 			tx.begin();
 			em.remove(p);
@@ -81,7 +81,7 @@ public class PatientDao {
 		return em.find( Patient.class , id ); 
 	}
 
-	public void editPatient(int id , String nom, String prenom, String datenaissance, String adresse) {
+	public void editPatient(int id , String nom, String prenom, String datenaissance, String adresse , String pays , String ville) {
  
 		Patient p = em.find( Patient.class , id );
 		EntityTransaction tx = em.getTransaction();
@@ -90,8 +90,10 @@ public class PatientDao {
 		p.setPrenom(prenom);
 		p.setNaissance(datenaissance);
 		p.setAdresse(adresse);
+		p.setPays(pays);
+		p.setVille(ville);
 		
-		// Début des modifications
+		// DÃ©but des modifications
 		try {
 			tx.begin();
 			em.persist(p);
