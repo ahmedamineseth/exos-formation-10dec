@@ -15,24 +15,28 @@
 
 	<main class="container">
 		<div class="border-1 w-50 mx-auto">
-			<form class="p-3">
+			<div id="msgErr" style="display:none">
+				<div class="alert alert-danger">Nom d'utilisateur ou mot de passe incorrect</div>
+			</div>
+			
+			<form class="p-3" action="" method="post" onsubmit="return authentifier()">
 				<h2 class="h4">Authentification</h2>
 				<hr>
 				<div class="mb-3 row">
 					<label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="staticEmail">
+						<input type="text" class="form-control" name="username" id="staticEmail">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="authPassword" class="col-sm-2 col-form-label">Password</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="authPassword">
+						<input type="password" class="form-control"  name="password" id="authPassword">
 					</div>
 				</div>
 
-				<button type="button" class="btn btn-primary btn-sm"
-					onclick="authentifier()">Authentifier</button>
+				<button type="submit" id="submitbtn" class="btn btn-primary btn-sm"
+					>Authentifier</button>
 			</form>
 		</div>
 	</main>
@@ -46,22 +50,50 @@
 		}
 
 		function authentifier(login, password) {
+			
+			document.getElementById("submitbtn").innerHTML = '<div class="spinner-border" role="status"><span class="sr-only"></span></div>'; 
+			
 			login = document.getElementById('staticEmail').value
 			password = document.getElementById('authPassword').value
 			
-			let data = {
-				"username" : login,
-				"password" : password
+			var details = {
+			    'username': login,
+			    'password': password
+			};
+
+			// préparation des paramètres 
+			var formBody = [];
+			for (var property in details) {
+			  var encodedKey = encodeURIComponent(property);
+			  var encodedValue = encodeURIComponent(details[property]);
+			  formBody.push(encodedKey + "=" + encodedValue);
 			}
-			
-			fetch("http://localhost:8080/medical7/",
-			{
-			    method: "POST",
-			    cache: 'no-cache',
-		        body: JSON.stringify(data)
+			formBody = formBody.join("&");
+
+			fetch("http://localhost:8080/medical7/", {
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			  },
+			  body: formBody
 			})
-			.then(function(res){ return res.json(); })
-			.then(function(data){ alert( JSON.stringify( data ) ) })
+			.then(res => {
+	            return res.text(); // extraction du texte à partir de l'objet response de fetch API
+	        })
+			.then(function(data){ 
+				console.log( data.indexOf("ok") );
+				
+				if( data.indexOf("ok") >=  0 ){
+					window.location = 'ListPatientServlet'; 
+				}else{
+					document.getElementById('msgErr').style.display = "block";
+				}
+				
+			})
+			
+			document.getElementById("submitbtn").innerHTML = 'Authentifier';
+			
+			return false; 
 			
 			/* if (  ) { // authentification réussie
 				setCookie("username", login, 3)
