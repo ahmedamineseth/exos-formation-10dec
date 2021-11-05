@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -25,15 +26,15 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="#">Dashboard</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="listepatient.jsp">Patient</a></li>
+						href="ListPatientServlet">Patient</a></li>
 					<li class="nav-item"><a class="nav-link" href="listerdv.jsp">RDV</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="listeville.jsp">Ville</a>
+					<li class="nav-item"><a class="nav-link" href="ListVilleServlet">Ville</a>
 					</li>
-
-
 				</ul>
 			</div>
 		</div>
 	</nav>
+
+	Bienvenue ${user.name}
 </header>

@@ -23,9 +23,7 @@ public class UserDao {
 
 	public UserDao() {
 		super();
-		emf = Persistence.createEntityManagerFactory("medical7");
-		em = emf.createEntityManager();
-
+		em = DbConnection.getInstance();
 	}
 
 	public List<User> getUsers() throws ClassNotFoundException {

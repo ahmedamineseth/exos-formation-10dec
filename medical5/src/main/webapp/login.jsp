@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,9 @@
 <title>Welcome to MediCom App</title>
 </head>
 <body>
-
+	<!-- html comment -->
+	<%-- html jsp --%>
+	
 	<main class="container">
 		<div class="border-1 w-50 mx-auto">
 			<div id="msgErr" style="display:none">

@@ -23,9 +23,7 @@ public class VilleDao {
 
 	public VilleDao() {
 		super();
-		emf = Persistence.createEntityManagerFactory("medical7");
-		em = emf.createEntityManager();
-
+		em = DbConnection.getInstance();
 	}
 
 	public List<Ville> getVilles() throws ClassNotFoundException {
